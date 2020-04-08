@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('{any?}', function () {
+    return view('vue');
+})->where('any', '.*');
+
+//qualunque rotta useremo sarà inviata alla view vue.blade.php
+// https://laravel.com/docs/7.x/routing#parameters-regular-expression-constraints
