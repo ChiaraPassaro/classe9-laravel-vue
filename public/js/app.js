@@ -1928,16 +1928,13 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       links: [{
-        path: '/',
-        name: 'Home'
+        path: "/",
+        name: "Home"
       }, {
-        path: '/about',
-        name: 'About'
+        path: "/about",
+        name: "About"
       }]
     };
-  },
-  created: function created() {
-    console.log(this.links);
   }
 });
 
@@ -1952,6 +1949,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1988,9 +1992,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+// importiamo il nostro componente header
+ //ed esportiamo per la creazione del file compilato tutte le regole di default
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
+    //ecco il nostro componente che deve essere usato per renderizzare l'header
     HeaderComponent: _components_HeaderComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
@@ -38015,29 +38022,22 @@ var render = function() {
   return _c("div", [
     _c(
       "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+      { staticClass: "navbar navbar-expand-lg navbar-dark bg-primary" },
       [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _vm._v("MyApp")
-        ]),
+        _c("h2", { staticClass: "navbar-brand" }, [_vm._v("MyApp")]),
         _vm._v(" "),
         _c("div", [
           _c(
             "ul",
             { staticClass: "navbar-nav mr-auto" },
             _vm._l(_vm.links, function(link, index) {
-              return _c(
-                "li",
-                { key: index, staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "nav-link", attrs: { to: link.path } },
-                    [_vm._v(_vm._s(link.name))]
-                  )
-                ],
-                1
-              )
+              return _c("li", { key: index, staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  { staticClass: "nav-link", attrs: { href: link.path } },
+                  [_vm._v(_vm._s(link.name))]
+                )
+              ])
             }),
             0
           )
@@ -38068,7 +38068,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v(_vm._s(_vm.message))])
+  return _c("div", { staticClass: "container mt-5" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("h1", [_vm._v("About")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.message))])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38099,10 +38107,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", [_vm._v("Home")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Ciao Classe 9")])
+    return _c("div", { staticClass: "container mt-5" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("h1", [_vm._v("Home")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Ciao Classe 9")])
+        ])
+      ])
     ])
   }
 ]
@@ -53240,19 +53252,51 @@ __webpack_require__.r(__webpack_exports__);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //Importiamo vue
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //Importiamo le rotte e la nostra view App.vue
+
+
+ //instanziamo Vue in una costante app
 
 var app = new Vue({
   el: "#app",
+  //questo è il nostro div che contiene la app
   router: _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  //qui diciamo a vue di usare come router Routes
   render: function render(h) {
     return h(_views_App__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  }
+  } //e qui usiamo un attributo di vue che renderizza il tutto in App
+
 });
 /* harmony default export */ __webpack_exports__["default"] = (app);
+/** ** ** ** ** **
+
+render: h => h(App) 
+è una contrazione di
+
+render: function (createElement) {
+    return createElement(App);
+}
+
+che può essere contratta a sua volta in
+render(createElement) {
+    return createElement(App);
+}
+
+poi in
+render(h) {
+    return h(App);
+}
+
+ed infine in
+render: h => h(App)
+
+h => h(App) è una arrow function una dichiarazione di funzione contratta 
+non è proprio identica ad una funzione "normale", perché prende sempre come this quello del genitore e non è possibile modificarlo
+
+** ** ** ** ** **/
 
 /***/ }),
 
@@ -53524,9 +53568,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/pages/Home.vue");
 /* harmony import */ var _pages_About__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/About */ "./resources/js/pages/About.vue");
+//importiamo vue e vue-router
+
+ //importiamo le nostre pagine/componenti
 
 
-
+ //diciamo a Vue che deve usare il plugin VueRouter
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

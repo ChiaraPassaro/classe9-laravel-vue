@@ -1,9 +1,12 @@
+//importiamo vue e vue-router
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+//importiamo le nostre pagine/componenti
 import Home from "./pages/Home";
 import About from "./pages/About";
 
+//diciamo a Vue che deve usare il plugin VueRouter
 Vue.use(VueRouter);
 
 const router = new VueRouter({

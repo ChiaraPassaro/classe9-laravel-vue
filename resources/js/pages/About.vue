@@ -1,5 +1,12 @@
 <template>
-  <h1>{{message}}</h1>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <h1>About</h1>
+        <p>{{message}}</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -8,17 +15,18 @@ export default {
   data() {
     return {
       message: ''
-    }
+    };
   },
-  mounted(){
+  mounted() {
     //possiamo caricare i dati che ci servono prima di montare il componente
     this.message = 'About Classe 9';
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
-  h1 {
-    color: red;
-  }
+// Possiamo creare degli style che funzionano solo in un dato componente
+h1 {
+  color: red;
+}
 </style>
