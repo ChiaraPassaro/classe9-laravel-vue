@@ -26,6 +26,10 @@ export default {
         { 
           path: "/about", 
           name: "About" 
+        },
+        { 
+          path: "/classi", 
+          name: "Classi" 
         }
       ]
     };

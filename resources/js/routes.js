@@ -5,6 +5,7 @@ import VueRouter from "vue-router";
 //importiamo le nostre pagine/componenti
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Classi from "./pages/Classi";
 
 //diciamo a Vue che deve usare il plugin VueRouter
 Vue.use(VueRouter);
@@ -21,6 +22,11 @@ const router = new VueRouter({
         path: "/about",
         name: "about",
         component: About
+      },
+      {
+        path: "/classi",
+        name: "classi",
+        component: Classi
       },
     ]
 });
